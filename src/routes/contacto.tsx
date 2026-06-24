@@ -78,7 +78,7 @@ function ContactPage() {
 
           <div className="space-y-4">
             <InfoCard icon={Mail} title="Email" value="contacto@faculdade360.ao" />
-            <InfoCard icon: undefined ={Phone} title="Telefone" value="+244 900 000 000" />
+            <InfoCard icon={Phone} title="Telefone" value="+244 900 000 000" />
             <InfoCard icon={MapPin} title="Sede" value="Luanda, Angola" />
             <div className="rounded-2xl bg-navy-gradient text-primary-foreground p-6">
               <div className="text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-2">Para investidores</div>
