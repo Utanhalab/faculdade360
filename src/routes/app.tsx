@@ -13,10 +13,10 @@ export const Route = createFileRoute("/app")({
 
 const nav = [
   { to: "/app", label: "Dashboard", icon: LayoutDashboard, exact: true },
-  { to: "/app/cronograma", label: "Cronograma", icon: Calendar },
-  { to: "/app/biblioteca", label: "Biblioteca", icon: Library },
-  { to: "/app/mentoria", label: "Mentoria", icon: Users },
-  { to: "/app/ia", label: "Assistente IA", icon: Sparkles },
+  { to: "/app/cronograma", label: "Cronograma", icon: Calendar, exact: false },
+  { to: "/app/biblioteca", label: "Biblioteca", icon: Library, exact: false },
+  { to: "/app/mentoria", label: "Mentoria", icon: Users, exact: false },
+  { to: "/app/ia", label: "Assistente IA", icon: Sparkles, exact: false },
 ] as const;
 
 function AppLayout() {

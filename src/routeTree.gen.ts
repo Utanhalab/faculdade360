@@ -15,7 +15,13 @@ import { Route as NegocioRouteImport } from './routes/negocio'
 import { Route as MercadoRouteImport } from './routes/mercado'
 import { Route as EquipaRouteImport } from './routes/equipa'
 import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppMentoriaRouteImport } from './routes/app.mentoria'
+import { Route as AppIaRouteImport } from './routes/app.ia'
+import { Route as AppCronogramaRouteImport } from './routes/app.cronograma'
+import { Route as AppBibliotecaRouteImport } from './routes/app.biblioteca'
 
 const RoadmapRoute = RoadmapRouteImport.update({
   id: '/roadmap',
@@ -47,20 +53,56 @@ const ContactoRoute = ContactoRouteImport.update({
   path: '/contacto',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppMentoriaRoute = AppMentoriaRouteImport.update({
+  id: '/mentoria',
+  path: '/mentoria',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppIaRoute = AppIaRouteImport.update({
+  id: '/ia',
+  path: '/ia',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCronogramaRoute = AppCronogramaRouteImport.update({
+  id: '/cronograma',
+  path: '/cronograma',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppBibliotecaRoute = AppBibliotecaRouteImport.update({
+  id: '/biblioteca',
+  path: '/biblioteca',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
   '/contacto': typeof ContactoRoute
   '/equipa': typeof EquipaRoute
   '/mercado': typeof MercadoRoute
   '/negocio': typeof NegocioRoute
   '/produto': typeof ProdutoRoute
   '/roadmap': typeof RoadmapRoute
+  '/app/biblioteca': typeof AppBibliotecaRoute
+  '/app/cronograma': typeof AppCronogramaRoute
+  '/app/ia': typeof AppIaRoute
+  '/app/mentoria': typeof AppMentoriaRoute
+  '/app/': typeof AppIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,27 +112,44 @@ export interface FileRoutesByTo {
   '/negocio': typeof NegocioRoute
   '/produto': typeof ProdutoRoute
   '/roadmap': typeof RoadmapRoute
+  '/app/biblioteca': typeof AppBibliotecaRoute
+  '/app/cronograma': typeof AppCronogramaRoute
+  '/app/ia': typeof AppIaRoute
+  '/app/mentoria': typeof AppMentoriaRoute
+  '/app': typeof AppIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
   '/contacto': typeof ContactoRoute
   '/equipa': typeof EquipaRoute
   '/mercado': typeof MercadoRoute
   '/negocio': typeof NegocioRoute
   '/produto': typeof ProdutoRoute
   '/roadmap': typeof RoadmapRoute
+  '/app/biblioteca': typeof AppBibliotecaRoute
+  '/app/cronograma': typeof AppCronogramaRoute
+  '/app/ia': typeof AppIaRoute
+  '/app/mentoria': typeof AppMentoriaRoute
+  '/app/': typeof AppIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/app'
     | '/contacto'
     | '/equipa'
     | '/mercado'
     | '/negocio'
     | '/produto'
     | '/roadmap'
+    | '/app/biblioteca'
+    | '/app/cronograma'
+    | '/app/ia'
+    | '/app/mentoria'
+    | '/app/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,19 +159,31 @@ export interface FileRouteTypes {
     | '/negocio'
     | '/produto'
     | '/roadmap'
+    | '/app/biblioteca'
+    | '/app/cronograma'
+    | '/app/ia'
+    | '/app/mentoria'
+    | '/app'
   id:
     | '__root__'
     | '/'
+    | '/app'
     | '/contacto'
     | '/equipa'
     | '/mercado'
     | '/negocio'
     | '/produto'
     | '/roadmap'
+    | '/app/biblioteca'
+    | '/app/cronograma'
+    | '/app/ia'
+    | '/app/mentoria'
+    | '/app/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
   ContactoRoute: typeof ContactoRoute
   EquipaRoute: typeof EquipaRoute
   MercadoRoute: typeof MercadoRoute
@@ -165,6 +236,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -172,11 +250,65 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app/': {
+      id: '/app/'
+      path: '/'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/mentoria': {
+      id: '/app/mentoria'
+      path: '/mentoria'
+      fullPath: '/app/mentoria'
+      preLoaderRoute: typeof AppMentoriaRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/ia': {
+      id: '/app/ia'
+      path: '/ia'
+      fullPath: '/app/ia'
+      preLoaderRoute: typeof AppIaRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/cronograma': {
+      id: '/app/cronograma'
+      path: '/cronograma'
+      fullPath: '/app/cronograma'
+      preLoaderRoute: typeof AppCronogramaRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/biblioteca': {
+      id: '/app/biblioteca'
+      path: '/biblioteca'
+      fullPath: '/app/biblioteca'
+      preLoaderRoute: typeof AppBibliotecaRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
+interface AppRouteChildren {
+  AppBibliotecaRoute: typeof AppBibliotecaRoute
+  AppCronogramaRoute: typeof AppCronogramaRoute
+  AppIaRoute: typeof AppIaRoute
+  AppMentoriaRoute: typeof AppMentoriaRoute
+  AppIndexRoute: typeof AppIndexRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppBibliotecaRoute: AppBibliotecaRoute,
+  AppCronogramaRoute: AppCronogramaRoute,
+  AppIaRoute: AppIaRoute,
+  AppMentoriaRoute: AppMentoriaRoute,
+  AppIndexRoute: AppIndexRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
   ContactoRoute: ContactoRoute,
   EquipaRoute: EquipaRoute,
   MercadoRoute: MercadoRoute,
