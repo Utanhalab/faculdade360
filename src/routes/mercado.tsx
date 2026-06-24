@@ -9,7 +9,9 @@ export const Route = createFileRoute("/mercado")({
       { name: "description", content: "O problema, a concorrência e as métricas de sucesso da Faculdade 360º no mercado angolano." },
       { property: "og:title", content: "Mercado — Faculdade 360º" },
       { property: "og:description", content: "Problemas reais do ensino superior em Angola e como nos posicionamos face à concorrência." },
+      { property: "og:url", content: "https://faculdade360.lovable.app/mercado" },
     ],
+    links: [{ rel: "canonical", href: "https://faculdade360.lovable.app/mercado" }],
   }),
   component: MarketPage,
 });

@@ -10,7 +10,9 @@ export const Route = createFileRoute("/contacto")({
       { name: "description", content: "Fale com a equipa da Faculdade 360º — investidores, universidades parceiras e empresas." },
       { property: "og:title", content: "Contacto — Faculdade 360º" },
       { property: "og:description", content: "Investidores, universidades parceiras e empresas." },
+      { property: "og:url", content: "https://faculdade360.lovable.app/contacto" },
     ],
+    links: [{ rel: "canonical", href: "https://faculdade360.lovable.app/contacto" }],
   }),
   component: ContactPage,
 });
@@ -48,8 +50,8 @@ function ContactPage() {
                 </div>
                 <Field label="Organização" name="org" placeholder="Empresa, fundo ou universidade" />
                 <div>
-                  <label className="text-sm font-medium mb-1.5 block">Sou…</label>
-                  <select className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm">
+                  <label htmlFor="role" className="text-sm font-medium mb-1.5 block">Sou…</label>
+                  <select id="role" name="role" className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm">
                     <option>Investidor / Fundo</option>
                     <option>Universidade / Instituição</option>
                     <option>Empresa parceira / Mentor</option>
@@ -58,8 +60,10 @@ function ContactPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="text-sm font-medium mb-1.5 block">Mensagem</label>
+                  <label htmlFor="message" className="text-sm font-medium mb-1.5 block">Mensagem</label>
                   <textarea
+                    id="message"
+                    name="message"
                     required
                     rows={5}
                     className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm resize-none"

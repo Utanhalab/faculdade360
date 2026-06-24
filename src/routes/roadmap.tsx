@@ -8,7 +8,9 @@ export const Route = createFileRoute("/roadmap")({
       { name: "description", content: "O caminho da Faculdade 360º até cada universidade angolana, em quatro fases." },
       { property: "og:title", content: "Roadmap — Faculdade 360º" },
       { property: "og:description", content: "MVP, mentoria corporativa, expansão nacional e lançamentos presenciais." },
+      { property: "og:url", content: "https://faculdade360.lovable.app/roadmap" },
     ],
+    links: [{ rel: "canonical", href: "https://faculdade360.lovable.app/roadmap" }],
   }),
   component: RoadmapPage,
 });

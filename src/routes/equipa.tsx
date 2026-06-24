@@ -9,7 +9,9 @@ export const Route = createFileRoute("/equipa")({
       { name: "description", content: "A equipa fundadora da Faculdade 360º — pessoas que conhecem o terreno académico angolano." },
       { property: "og:title", content: "Equipa — Faculdade 360º" },
       { property: "og:description", content: "Fundadores e líderes da Faculdade 360º." },
+      { property: "og:url", content: "https://faculdade360.lovable.app/equipa" },
     ],
+    links: [{ rel: "canonical", href: "https://faculdade360.lovable.app/equipa" }],
   }),
   component: TeamPage,
 });

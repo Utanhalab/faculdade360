@@ -8,7 +8,9 @@ export const Route = createFileRoute("/negocio")({
       { name: "description", content: "Três fontes de receita sustentáveis: prestação de serviço, subscrição e comissão por mentoria (MaaS)." },
       { property: "og:title", content: "Modelo de Negócio — Faculdade 360º" },
       { property: "og:description", content: "Prestação de serviço, subscrição e comissão por mentoria." },
+      { property: "og:url", content: "https://faculdade360.lovable.app/negocio" },
     ],
+    links: [{ rel: "canonical", href: "https://faculdade360.lovable.app/negocio" }],
   }),
   component: BusinessPage,
 });
