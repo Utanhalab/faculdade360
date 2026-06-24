@@ -58,14 +58,6 @@ function Hero() {
       </div>
 
       <div className="mx-auto max-w-7xl px-6 pt-20 pb-24 md:pt-28 md:pb-32">
-        {/* Top eyebrow */}
-        <div className="flex justify-center mb-10">
-          <span className="inline-flex items-center gap-2 rounded-full bg-card border border-border shadow-sm px-4 py-1.5 text-xs font-medium text-foreground">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
-            Pitch para Investidores & Parceiros
-            <span className="text-muted-foreground">· 2026</span>
-          </span>
-        </div>
 
         {/* Headline */}
         <div className="text-center max-w-4xl mx-auto">
