@@ -22,8 +22,10 @@ export const Route = createFileRoute("/")({
         content:
           "IA com currículo angolano, biblioteca informatizada, mentoria corporativa (MaaS) e acesso offline.",
       },
+      { property: "og:url", content: "https://faculdade360.lovable.app/" },
       { property: "og:image", content: heroImg },
     ],
+    links: [{ rel: "canonical", href: "https://faculdade360.lovable.app/" }],
   }),
   component: Home,
 });

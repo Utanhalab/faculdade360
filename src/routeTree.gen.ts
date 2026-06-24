@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RoadmapRouteImport } from './routes/roadmap'
 import { Route as ProdutoRouteImport } from './routes/produto'
 import { Route as NegocioRouteImport } from './routes/negocio'
@@ -23,6 +24,11 @@ import { Route as AppIaRouteImport } from './routes/app.ia'
 import { Route as AppCronogramaRouteImport } from './routes/app.cronograma'
 import { Route as AppBibliotecaRouteImport } from './routes/app.biblioteca'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RoadmapRoute = RoadmapRouteImport.update({
   id: '/roadmap',
   path: '/roadmap',
@@ -98,6 +104,7 @@ export interface FileRoutesByFullPath {
   '/negocio': typeof NegocioRoute
   '/produto': typeof ProdutoRoute
   '/roadmap': typeof RoadmapRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/app/biblioteca': typeof AppBibliotecaRoute
   '/app/cronograma': typeof AppCronogramaRoute
   '/app/ia': typeof AppIaRoute
@@ -112,6 +119,7 @@ export interface FileRoutesByTo {
   '/negocio': typeof NegocioRoute
   '/produto': typeof ProdutoRoute
   '/roadmap': typeof RoadmapRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/app/biblioteca': typeof AppBibliotecaRoute
   '/app/cronograma': typeof AppCronogramaRoute
   '/app/ia': typeof AppIaRoute
@@ -128,6 +136,7 @@ export interface FileRoutesById {
   '/negocio': typeof NegocioRoute
   '/produto': typeof ProdutoRoute
   '/roadmap': typeof RoadmapRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/app/biblioteca': typeof AppBibliotecaRoute
   '/app/cronograma': typeof AppCronogramaRoute
   '/app/ia': typeof AppIaRoute
@@ -145,6 +154,7 @@ export interface FileRouteTypes {
     | '/negocio'
     | '/produto'
     | '/roadmap'
+    | '/sitemap.xml'
     | '/app/biblioteca'
     | '/app/cronograma'
     | '/app/ia'
@@ -159,6 +169,7 @@ export interface FileRouteTypes {
     | '/negocio'
     | '/produto'
     | '/roadmap'
+    | '/sitemap.xml'
     | '/app/biblioteca'
     | '/app/cronograma'
     | '/app/ia'
@@ -174,6 +185,7 @@ export interface FileRouteTypes {
     | '/negocio'
     | '/produto'
     | '/roadmap'
+    | '/sitemap.xml'
     | '/app/biblioteca'
     | '/app/cronograma'
     | '/app/ia'
@@ -190,10 +202,18 @@ export interface RootRouteChildren {
   NegocioRoute: typeof NegocioRoute
   ProdutoRoute: typeof ProdutoRoute
   RoadmapRoute: typeof RoadmapRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/roadmap': {
       id: '/roadmap'
       path: '/roadmap'
@@ -315,6 +335,7 @@ const rootRouteChildren: RootRouteChildren = {
   NegocioRoute: NegocioRoute,
   ProdutoRoute: ProdutoRoute,
   RoadmapRoute: RoadmapRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -9,7 +9,9 @@ export const Route = createFileRoute("/produto")({
       { name: "description", content: "Funcionalidades da Faculdade 360º: IA académica, biblioteca, mentoria corporativa, salas virtuais e acesso offline." },
       { property: "og:title", content: "Produto — Faculdade 360º" },
       { property: "og:description", content: "IA, biblioteca, mentoria corporativa e acesso offline numa única app móvel." },
+      { property: "og:url", content: "https://faculdade360.lovable.app/produto" },
     ],
+    links: [{ rel: "canonical", href: "https://faculdade360.lovable.app/produto" }],
   }),
   component: ProductPage,
 });

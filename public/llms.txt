@@ -1,0 +1,13 @@
+# Faculdade 360º
+
+> Plataforma móvel angolana de produtividade académica: IA com currículo local, biblioteca digital, mentoria corporativa (MaaS) e acesso offline para estudantes universitários.
+
+## Pages
+
+- [Home](/): Visão geral da plataforma para investidores e parceiros.
+- [Produto](/produto): Funcionalidades — IA, biblioteca, mentoria, salas virtuais, offline.
+- [Mercado](/mercado): Problema, concorrência e oportunidade no ensino superior angolano.
+- [Modelo de Negócio](/negocio): Subscrição, prestação de serviço e comissão por mentoria.
+- [Roadmap](/roadmap): As quatro fases até cobertura nacional.
+- [Equipa](/equipa): Fundadores e líderes.
+- [Contacto](/contacto): Formulário para investidores, universidades e empresas.

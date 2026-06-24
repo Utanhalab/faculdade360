@@ -77,16 +77,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Solution Compass is a system designed to address project requirements outlined in an attached file." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Solution Compass is a system designed to address project requirements outlined in an attached file." },
+      { title: "Faculdade 360º — Produtividade Académica em Angola" },
+      {
+        name: "description",
+        content:
+          "Plataforma móvel angolana que une IA com currículo local, biblioteca digital, mentoria corporativa e acesso offline para estudantes universitários.",
+      },
+      { name: "author", content: "Faculdade 360º" },
+      { property: "og:site_name", content: "Faculdade 360º" },
+      { property: "og:title", content: "Faculdade 360º — Produtividade Académica em Angola" },
+      {
+        property: "og:description",
+        content:
+          "IA com currículo angolano, biblioteca digital, mentoria corporativa (MaaS) e acesso offline numa única app.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Solution Compass is a system designed to address project requirements outlined in an attached file." },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Faculdade 360º — Produtividade Académica em Angola" },
+      {
+        name: "twitter:description",
+        content:
+          "IA com currículo angolano, biblioteca digital, mentoria corporativa e acesso offline.",
+      },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d8970048-5329-4243-9aab-0e45a3c1f782/id-preview-77e45e54--c1280824-5e52-4635-8084-7b81528a110a.lovable.app-1782316380014.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d8970048-5329-4243-9aab-0e45a3c1f782/id-preview-77e45e54--c1280824-5e52-4635-8084-7b81528a110a.lovable.app-1782316380014.png" },
     ],
@@ -97,6 +109,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              name: "Faculdade 360º",
+              url: "https://faculdade360.lovable.app",
+              description:
+                "Plataforma de produtividade académica para estudantes universitários angolanos.",
+              areaServed: "AO",
+            },
+            {
+              "@type": "WebSite",
+              name: "Faculdade 360º",
+              url: "https://faculdade360.lovable.app",
+              inLanguage: "pt-AO",
+            },
+          ],
+        }),
       },
     ],
   }),
