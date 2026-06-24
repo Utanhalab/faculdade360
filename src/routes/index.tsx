@@ -45,14 +45,14 @@ function Hero() {
     <section className="relative overflow-hidden bg-background">
       {/* Decorative background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-primary/15 blur-3xl" />
-        <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] rounded-full bg-gold/25 blur-3xl" />
+        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] rounded-full bg-gold/20 blur-3xl" />
         <div
-          className="absolute inset-0 opacity-[0.04]"
+          className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage:
               "radial-gradient(circle at 1px 1px, var(--foreground) 1px, transparent 0)",
-            backgroundSize: "28px 28px",
+            backgroundSize: "32px 32px",
           }}
         />
       </div>
@@ -100,12 +100,12 @@ function Hero() {
           </div>
         </div>
 
-        {/* Visual bento collage */}
-        <div className="mt-20 relative grid grid-cols-12 gap-4 md:gap-5 max-w-6xl mx-auto">
-          {/* Left column */}
-          <div className="col-span-12 md:col-span-3 flex flex-col gap-4 md:gap-5">
+        {/* Visual bento collage — organized, clean alignment */}
+        <div className="mt-20 grid grid-cols-12 gap-5 md:gap-6 max-w-6xl mx-auto items-stretch">
+          {/* Left column — 3 cards stacked, equal spacing */}
+          <div className="col-span-12 md:col-span-3 flex flex-col gap-5 md:gap-6">
             {/* Student portrait */}
-            <div className="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-elegant border border-border">
+            <div className="relative rounded-3xl overflow-hidden shadow-elegant border border-border flex-1 min-h-[220px]">
               <img
                 src={studentImg}
                 alt="Estudante universitário angolano"
@@ -114,98 +114,131 @@ function Hero() {
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 text-primary-foreground">
+              <div className="absolute bottom-5 left-5 right-5 text-primary-foreground">
                 <div className="text-xs uppercase tracking-wider opacity-80">Estudante</div>
-                <div className="font-display font-semibold text-lg leading-tight">+250 mil em Angola</div>
+                <div className="font-display font-semibold text-xl leading-tight">+250 mil em Angola</div>
               </div>
             </div>
+
             {/* AI card */}
-            <div className="rounded-3xl bg-primary text-primary-foreground p-5 shadow-elegant">
-              <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-gold mb-3">
-                <Bot className="w-3.5 h-3.5" /> IA Académica
+            <div className="rounded-3xl bg-primary text-primary-foreground p-6 shadow-elegant">
+              <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-gold mb-4">
+                <Bot className="w-4 h-4" /> IA Académica
               </div>
               <p className="text-sm leading-relaxed text-primary-foreground/85">
                 "Explica-me a Lei de Okun com exemplos da economia angolana."
               </p>
-              <div className="mt-3 flex gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold animate-bounce" style={{ animationDelay: "0ms" }} />
-                <span className="w-1.5 h-1.5 rounded-full bg-gold animate-bounce" style={{ animationDelay: "150ms" }} />
-                <span className="w-1.5 h-1.5 rounded-full bg-gold animate-bounce" style={{ animationDelay: "300ms" }} />
+              <div className="mt-4 flex gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-gold animate-bounce" style={{ animationDelay: "0ms" }} />
+                <span className="w-2 h-2 rounded-full bg-gold animate-bounce" style={{ animationDelay: "150ms" }} />
+                <span className="w-2 h-2 rounded-full bg-gold animate-bounce" style={{ animationDelay: "300ms" }} />
+              </div>
+            </div>
+
+            {/* Mentor card — moved from floating to grid */}
+            <div className="rounded-3xl bg-card border border-border p-5 shadow-elegant flex items-center gap-4">
+              <div className="w-11 h-11 rounded-xl bg-gold/15 flex items-center justify-center shrink-0">
+                <Building2 className="w-5 h-5 text-gold" />
+              </div>
+              <div>
+                <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Mentor BAI</div>
+                <div className="text-sm font-semibold text-foreground">Sessão agendada</div>
               </div>
             </div>
           </div>
 
-          {/* Center phone */}
-          <div className="col-span-12 md:col-span-6 relative">
-            <div className="relative aspect-[3/4] flex items-center justify-center">
-              <div className="absolute inset-0 bg-gradient-to-br from-gold/20 via-transparent to-primary/20 rounded-[3rem] blur-2xl" />
+          {/* Center phone — clean, no overlapping chips */}
+          <div className="col-span-12 md:col-span-6 flex flex-col">
+            <div className="relative flex-1 min-h-[420px] flex items-center justify-center rounded-[2.5rem] bg-gradient-to-br from-gold/10 via-transparent to-primary/10 border border-border/50">
               <img
                 src={phoneImg}
                 alt="App Faculdade 360º"
                 width={1024}
                 height={1536}
-                className="relative max-h-[640px] w-auto h-full object-contain drop-shadow-2xl"
+                className="relative max-h-[520px] w-auto h-full object-contain drop-shadow-2xl"
               />
-              {/* Floating mentor chip */}
-              <div className="absolute top-8 -left-2 md:left-0 bg-card rounded-2xl border border-border shadow-elegant p-3 pr-5 flex items-center gap-3 max-w-[220px]">
-                <div className="w-10 h-10 rounded-xl bg-gold/20 flex items-center justify-center shrink-0">
-                  <Building2 className="w-5 h-5 text-gold-foreground" />
-                </div>
-                <div>
-                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Mentor BAI</div>
-                  <div className="text-sm font-semibold text-foreground">Sessão agendada</div>
-                </div>
-              </div>
-              {/* Floating offline chip */}
-              <div className="absolute bottom-16 -right-2 md:right-0 bg-card rounded-2xl border border-border shadow-elegant p-3 pr-5 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                  <WifiOff className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Offline</div>
-                  <div className="text-sm font-semibold text-foreground">12 livros sincronizados</div>
-                </div>
-              </div>
             </div>
           </div>
 
-          {/* Right column */}
-          <div className="col-span-12 md:col-span-3 flex flex-col gap-4 md:gap-5">
+          {/* Right column — 3 cards stacked, matching left rhythm */}
+          <div className="col-span-12 md:col-span-3 flex flex-col gap-5 md:gap-6">
             {/* Stat card */}
-            <div className="rounded-3xl bg-card border border-border p-5 shadow-elegant">
-              <div className="flex items-center justify-between mb-3">
+            <div className="rounded-3xl bg-card border border-border p-6 shadow-elegant flex-1">
+              <div className="flex items-center justify-between mb-4">
                 <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Cobertura</div>
                 <TrendingUp className="w-4 h-4 text-gold" />
               </div>
-              <div className="font-display text-4xl font-semibold text-foreground">70+</div>
+              <div className="font-display text-5xl font-semibold text-foreground">70+</div>
               <div className="text-sm text-muted-foreground mt-1">Instituições alvo</div>
-              <div className="mt-4 h-1.5 rounded-full bg-muted overflow-hidden">
+              <div className="mt-5 h-2 rounded-full bg-muted overflow-hidden">
                 <div className="h-full w-3/4 bg-gradient-to-r from-primary to-gold rounded-full" />
               </div>
             </div>
+
             {/* Library card */}
-            <div className="rounded-3xl bg-gold text-gold-foreground p-5 shadow-gold">
-              <Library className="w-6 h-6 mb-3" />
+            <div className="rounded-3xl bg-gold text-gold-foreground p-6 shadow-gold">
+              <Library className="w-6 h-6 mb-4" />
               <div className="font-display text-xl font-semibold leading-tight">Biblioteca digital nacional</div>
-              <div className="text-sm mt-1 opacity-80">Bibliografia oficial dos cursos.</div>
+              <div className="text-sm mt-2 opacity-80">Bibliografia oficial dos cursos.</div>
             </div>
-            {/* Rating */}
-            <div className="rounded-3xl bg-card border border-border p-5 shadow-elegant flex-1">
-              <div className="flex items-center gap-1 text-gold mb-2">
+
+            {/* Testimonial */}
+            <div className="rounded-3xl bg-card border border-border p-6 shadow-elegant flex-1 flex flex-col justify-center">
+              <div className="flex items-center gap-1 text-gold mb-3">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-current" />
                 ))}
               </div>
-              <p className="text-sm text-foreground leading-snug">
+              <p className="text-sm text-foreground leading-relaxed">
                 "Finalmente uma plataforma que entende o nosso currículo."
               </p>
-              <div className="text-xs text-muted-foreground mt-2">— Estudante, Eng. Informática</div>
+              <div className="text-xs text-muted-foreground mt-3">— Estudante, Eng. Informática</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Feature strip — replaces chaotic floating chips with a clean row */}
+        <div className="mt-10 max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="rounded-2xl bg-card border border-border p-4 shadow-sm flex items-center gap-3">
+            <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+              <WifiOff className="w-4 h-4 text-primary" />
+            </div>
+            <div>
+              <div className="text-xs font-semibold text-foreground">Offline-first</div>
+              <div className="text-[11px] text-muted-foreground">12 livros sincronizados</div>
+            </div>
+          </div>
+          <div className="rounded-2xl bg-card border border-border p-4 shadow-sm flex items-center gap-3">
+            <div className="w-9 h-9 rounded-lg bg-gold/15 flex items-center justify-center shrink-0">
+              <Sparkles className="w-4 h-4 text-gold" />
+            </div>
+            <div>
+              <div className="text-xs font-semibold text-foreground">IA Nacional</div>
+              <div className="text-[11px] text-muted-foreground">Treinada no currículo angolano</div>
+            </div>
+          </div>
+          <div className="rounded-2xl bg-card border border-border p-4 shadow-sm flex items-center gap-3">
+            <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+              <Users className="w-4 h-4 text-primary" />
+            </div>
+            <div>
+              <div className="text-xs font-semibold text-foreground">Mentoria MaaS</div>
+              <div className="text-[11px] text-muted-foreground">Quadros de empresas parceiras</div>
+            </div>
+          </div>
+          <div className="rounded-2xl bg-card border border-border p-4 shadow-sm flex items-center gap-3">
+            <div className="w-9 h-9 rounded-lg bg-gold/15 flex items-center justify-center shrink-0">
+              <BookOpen className="w-4 h-4 text-gold" />
+            </div>
+            <div>
+              <div className="text-xs font-semibold text-foreground">Biblioteca Digital</div>
+              <div className="text-[11px] text-muted-foreground">Acesso offline garantido</div>
             </div>
           </div>
         </div>
 
         {/* Trust strip */}
-        <div className="mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+        <div className="mt-14 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
           <span className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> MaaS</span>
           <span className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> Offline-first</span>
           <span className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> IA nacional</span>
