@@ -1,8 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Sparkles, Users, Library, WifiOff, TrendingUp, Building2, Quote } from "lucide-react";
+import { ArrowRight, Sparkles, Users, Library, WifiOff, TrendingUp, Building2, Quote, GraduationCap, BookOpen, Bot, CheckCircle2, Star } from "lucide-react";
 import heroImg from "@/assets/hero-students.jpg";
 import patternBg from "@/assets/pattern-bg.jpg";
+import phoneImg from "@/assets/hero-phone.png";
+import studentImg from "@/assets/hero-student.jpg";
 import { SiteLayout } from "@/components/site/SiteLayout";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -39,67 +42,180 @@ function Home() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10 bg-navy-gradient" />
-      <div
-        className="absolute inset-0 -z-10 opacity-20 mix-blend-overlay"
-        style={{ backgroundImage: `url(${patternBg})`, backgroundSize: "cover" }}
-      />
-      <div className="mx-auto max-w-7xl px-6 py-24 md:py-32 grid lg:grid-cols-2 gap-12 items-center">
-        <div className="text-primary-foreground">
-          <span className="inline-flex items-center gap-2 rounded-full bg-gold/15 border border-gold/30 px-3 py-1 text-xs font-medium text-gold mb-6">
-            <Sparkles className="w-3.5 h-3.5" /> Pitch para Investidores & Parceiros
+    <section className="relative overflow-hidden bg-background">
+      {/* Decorative background */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-primary/15 blur-3xl" />
+        <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] rounded-full bg-gold/25 blur-3xl" />
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, var(--foreground) 1px, transparent 0)",
+            backgroundSize: "28px 28px",
+          }}
+        />
+      </div>
+
+      <div className="mx-auto max-w-7xl px-6 pt-20 pb-24 md:pt-28 md:pb-32">
+        {/* Top eyebrow */}
+        <div className="flex justify-center mb-10">
+          <span className="inline-flex items-center gap-2 rounded-full bg-card border border-border shadow-sm px-4 py-1.5 text-xs font-medium text-foreground">
+            <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
+            Pitch para Investidores & Parceiros
+            <span className="text-muted-foreground">· 2026</span>
           </span>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05]">
-            Construímos a infraestrutura digital do{" "}
-            <span className="text-gradient-gold">ensino superior angolano</span>.
+        </div>
+
+        {/* Headline */}
+        <div className="text-center max-w-4xl mx-auto">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold leading-[0.95] tracking-tight text-foreground">
+            A infraestrutura digital do{" "}
+            <span className="relative inline-block">
+              <span className="text-gradient-gold">ensino superior</span>
+              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 12" fill="none">
+                <path d="M2 9 Q 150 -2 298 8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" className="text-gold/60"/>
+              </svg>
+            </span>{" "}
+            angolano.
           </h1>
-          <p className="mt-6 text-lg text-primary-foreground/75 max-w-xl leading-relaxed">
-            Faculdade 360º é uma app móvel que junta IA com currículo nacional,
-            biblioteca académica, mentoria corporativa (MaaS) e acesso offline —
-            tudo numa única experiência feita para Angola.
+          <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            IA com currículo nacional, biblioteca académica, mentoria corporativa
+            e acesso offline — numa única app feita para Angola.
           </p>
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mt-10 flex flex-wrap gap-3 justify-center">
             <Link
               to="/contacto"
-              className="inline-flex items-center gap-2 rounded-full bg-gold text-gold-foreground px-6 py-3 font-medium shadow-gold hover:translate-y-[-1px] transition"
+              className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-3.5 font-medium shadow-elegant hover:translate-y-[-1px] transition"
             >
-              Investir / Parceria <ArrowRight className="w-4 h-4" />
+              Investir / Parceria
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition" />
             </Link>
             <Link
               to="/produto"
-              className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 text-primary-foreground px-6 py-3 font-medium hover:bg-primary-foreground/10 transition"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card text-foreground px-7 py-3.5 font-medium hover:bg-accent transition"
             >
               Ver o produto
             </Link>
           </div>
-          <div className="mt-12 grid grid-cols-3 gap-6 max-w-md">
-            {[
-              ["MaaS", "Mentoria como Serviço"],
-              ["Offline", "Pouco uso de dados"],
-              ["IA", "Currículo angolano"],
-            ].map(([k, v]) => (
-              <div key={k}>
-                <div className="text-2xl font-display font-semibold text-gold">{k}</div>
-                <div className="text-xs text-primary-foreground/65 mt-1">{v}</div>
+        </div>
+
+        {/* Visual bento collage */}
+        <div className="mt-20 relative grid grid-cols-12 gap-4 md:gap-5 max-w-6xl mx-auto">
+          {/* Left column */}
+          <div className="col-span-12 md:col-span-3 flex flex-col gap-4 md:gap-5">
+            {/* Student portrait */}
+            <div className="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-elegant border border-border">
+              <img
+                src={studentImg}
+                alt="Estudante universitário angolano"
+                width={768}
+                height={768}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 text-primary-foreground">
+                <div className="text-xs uppercase tracking-wider opacity-80">Estudante</div>
+                <div className="font-display font-semibold text-lg leading-tight">+250 mil em Angola</div>
               </div>
-            ))}
+            </div>
+            {/* AI card */}
+            <div className="rounded-3xl bg-primary text-primary-foreground p-5 shadow-elegant">
+              <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-gold mb-3">
+                <Bot className="w-3.5 h-3.5" /> IA Académica
+              </div>
+              <p className="text-sm leading-relaxed text-primary-foreground/85">
+                "Explica-me a Lei de Okun com exemplos da economia angolana."
+              </p>
+              <div className="mt-3 flex gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold animate-bounce" style={{ animationDelay: "0ms" }} />
+                <span className="w-1.5 h-1.5 rounded-full bg-gold animate-bounce" style={{ animationDelay: "150ms" }} />
+                <span className="w-1.5 h-1.5 rounded-full bg-gold animate-bounce" style={{ animationDelay: "300ms" }} />
+              </div>
+            </div>
+          </div>
+
+          {/* Center phone */}
+          <div className="col-span-12 md:col-span-6 relative">
+            <div className="relative aspect-[3/4] flex items-center justify-center">
+              <div className="absolute inset-0 bg-gradient-to-br from-gold/20 via-transparent to-primary/20 rounded-[3rem] blur-2xl" />
+              <img
+                src={phoneImg}
+                alt="App Faculdade 360º"
+                width={1024}
+                height={1536}
+                className="relative max-h-[640px] w-auto h-full object-contain drop-shadow-2xl"
+              />
+              {/* Floating mentor chip */}
+              <div className="absolute top-8 -left-2 md:left-0 bg-card rounded-2xl border border-border shadow-elegant p-3 pr-5 flex items-center gap-3 max-w-[220px]">
+                <div className="w-10 h-10 rounded-xl bg-gold/20 flex items-center justify-center shrink-0">
+                  <Building2 className="w-5 h-5 text-gold-foreground" />
+                </div>
+                <div>
+                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Mentor BAI</div>
+                  <div className="text-sm font-semibold text-foreground">Sessão agendada</div>
+                </div>
+              </div>
+              {/* Floating offline chip */}
+              <div className="absolute bottom-16 -right-2 md:right-0 bg-card rounded-2xl border border-border shadow-elegant p-3 pr-5 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <WifiOff className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Offline</div>
+                  <div className="text-sm font-semibold text-foreground">12 livros sincronizados</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right column */}
+          <div className="col-span-12 md:col-span-3 flex flex-col gap-4 md:gap-5">
+            {/* Stat card */}
+            <div className="rounded-3xl bg-card border border-border p-5 shadow-elegant">
+              <div className="flex items-center justify-between mb-3">
+                <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Cobertura</div>
+                <TrendingUp className="w-4 h-4 text-gold" />
+              </div>
+              <div className="font-display text-4xl font-semibold text-foreground">70+</div>
+              <div className="text-sm text-muted-foreground mt-1">Instituições alvo</div>
+              <div className="mt-4 h-1.5 rounded-full bg-muted overflow-hidden">
+                <div className="h-full w-3/4 bg-gradient-to-r from-primary to-gold rounded-full" />
+              </div>
+            </div>
+            {/* Library card */}
+            <div className="rounded-3xl bg-gold text-gold-foreground p-5 shadow-gold">
+              <Library className="w-6 h-6 mb-3" />
+              <div className="font-display text-xl font-semibold leading-tight">Biblioteca digital nacional</div>
+              <div className="text-sm mt-1 opacity-80">Bibliografia oficial dos cursos.</div>
+            </div>
+            {/* Rating */}
+            <div className="rounded-3xl bg-card border border-border p-5 shadow-elegant flex-1">
+              <div className="flex items-center gap-1 text-gold mb-2">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-current" />
+                ))}
+              </div>
+              <p className="text-sm text-foreground leading-snug">
+                "Finalmente uma plataforma que entende o nosso currículo."
+              </p>
+              <div className="text-xs text-muted-foreground mt-2">— Estudante, Eng. Informática</div>
+            </div>
           </div>
         </div>
-        <div className="relative">
-          <div className="absolute -inset-4 bg-gold/20 blur-3xl rounded-full" />
-          <img
-            src={heroImg}
-            alt="Estudantes universitários angolanos usando a Faculdade 360º"
-            width={1536}
-            height={1024}
-            className="relative rounded-3xl shadow-elegant border border-primary-foreground/10"
-          />
+
+        {/* Trust strip */}
+        <div className="mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+          <span className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> MaaS</span>
+          <span className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> Offline-first</span>
+          <span className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> IA nacional</span>
+          <span className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> Mentoria corporativa</span>
         </div>
       </div>
     </section>
   );
 }
+
 
 function Pillars() {
   const items = [
